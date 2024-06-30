@@ -10,7 +10,7 @@ output "cluster_endpoint" {
 
 output "region" {
   description = "Amazon Web Service EKS Cluster region"
-  value       = var.region
+  value       = var.region # from var.tf
 }
 
 

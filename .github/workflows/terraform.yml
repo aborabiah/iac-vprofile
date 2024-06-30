@@ -36,11 +36,13 @@ jobs:
         uses: hashicorp/setup-terraform@v2
       
       - name: Terraform init
-        id: init # you can reference this in next task
-        run: terraform init -backend-config="$BUCKET_TF_STATE"
+        id: init 
+        run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        
       - name: Terraform format
         id: fmt
-        run: terraform fmt -check # if fail return - , then workflow is failed
+        run: terraform fmt -check 
+
       - name:  Terraform validate
         id: validate
         run: terraform validate
@@ -49,6 +51,7 @@ jobs:
         id: plan
         run: terraform plan -no-color -input=false -out planfile
         continue-on-error: true
+
       - name: Terraform plan status
         if: steps.plan.outcome == 'failure'
         run: exit 1

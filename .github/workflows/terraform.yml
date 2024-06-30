@@ -1,4 +1,4 @@
-name: "ssa"
+name: "Vprofile IAC"
 on:
     push:
       branches:

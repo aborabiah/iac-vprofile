@@ -38,7 +38,7 @@ terraform {
     */
   }
 
-  required_version = "~> 1.6.3" # الاصدار المطلوب للterraform
+  #required_version = "~> 1.6.3" # الاصدار المطلوب للterraform
 }
 ##
 ##

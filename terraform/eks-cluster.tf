@@ -5,16 +5,16 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = "1.27"
 
-  vpc_id                         = module.vpc.vpc_id
+  vpc_id                         = module.vpc.vpc_id # from vpc.tf
   subnet_ids                     = module.vpc.private_subnets
-  cluster_endpoint_public_access = true
+  cluster_endpoint_public_access = true # get eks endpoint to access it by using  kubefile
 
   eks_managed_node_group_defaults = {
     ami_type = "AL2_x86_64"
 
   }
 
-  eks_managed_node_groups = {
+  eks_managed_node_groups = { # two node 
     one = {
       name = "node-group-1"
 
@@ -25,7 +25,7 @@ module "eks" {
       desired_size = 2
     }
 
-    two = {
+    two = { # only node 
       name = "node-group-2"
 
       instance_types = ["t3.small"]
@@ -34,5 +34,5 @@ module "eks" {
       max_size     = 2
       desired_size = 1
     }
-  }
+  } # total for two group 3 nodes
 }

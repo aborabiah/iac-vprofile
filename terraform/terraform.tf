@@ -17,7 +17,7 @@ terraform {
 
     cloudinit = {
       source  = "hashicorp/cloudinit"
-      version = "~> 2.3.2"   
+      version = "~> 2.3.2"
     }
 
     kubernetes = {
@@ -28,7 +28,7 @@ terraform {
 
   backend "s3" {
     bucket = "vprofileactions9999" # replace with bucket name 
-    key    = "terraform.tfstate" # the will create this file in this bucket to maintain the state 
+    key    = "terraform.tfstate"   # the will create this file in this bucket to maintain the state 
     region = "us-east-2"
     /*
 لانك لو ماحطيته القيت هب اكشن
